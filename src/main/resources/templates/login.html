@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/pages/login.css}">
+    <title>Learna | Aprende con los mejores </title>
+</head>
+
+<body>
+
+    <div class="toolbar">
+        <h2>Learna</h2>
+
+        <nav class="toolbar-links">
+            <a th:href="@{/}">
+                <ion-icon name="home-outline"></ion-icon>
+                Inicio
+            </a>
+        </nav>
+
+        <div class="dark-mode">
+            <div class="circle">
+                <ion-icon class="sun" name="sunny"></ion-icon>
+                <ion-icon class="moon" name="moon"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class = "title-login">
+        <h1>DONDE NACEN LOS SUEÑOS</h1>
+    </div>
+
+
+    <div class="container">
+        <div class="container-form">
+            <form class="sign-in">
+                <h2>Iniciar Sesión</h2>
+
+                <span> Use su correo y contraseña </span>
+
+                <div class="container-input">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="mail" placeholder="Email">
+                </div>
+
+                <div class="container-input">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" id="password-login" placeholder="Contraseña" minlength="8" maxlength="16">
+                </div>
+
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <p class="error" id="error-login"></p>
+                <p class ="error" id="error-register"></p>
+
+                <button class="button" id="btn-login-form">Iniciar Sesión</button>
+            </form>
+
+        </div>
+        <div class="container-form">
+            <form class="sign-up">
+                <h2>Registrarse</h2>
+                <span> Use su correo electrónico para registrarse </span>
+                <div class="container-input">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <input type="text" placeholder="Nombre">
+
+                </div>
+                <div class="container-input">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="mail" placeholder="Email">
+                </div>
+                <div class="container-input">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" id="password-register" placeholder="Contraseña" minlength="8" maxlength="16">
+                </div>
+                <button class="button1" id="btn-registrar-form">Registrarse</button>
+            </form>
+        </div>
+
+        <div class="container-welcome">
+
+            <div class="welcome-sign-up welcome">
+                <h3>Bienvenido</h3>
+                <p>Ingrese sus datos personales para usar todas las funciones del sitio</p>
+                <button class="button" id="btn-sign-up">Registrarse</button>
+            </div>
+
+            <div class="welcome-sign-in welcome">
+                <h3>¡Hola!</h3>
+                <p>Regístrese con sus datos personales para usar todas las funciones del sitio</p>
+                <button class="button" id="btn-sign-in">Iniciar Sesión</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script th:src="@{/js/global.js}"></script>
+    <script th:src="@{/js/pages/login.js}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

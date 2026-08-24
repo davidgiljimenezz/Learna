@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/pages/contacto.css}">
+    <title>Contacto - Learna</title>
+</head>
+<body>
+
+    <div class="toolbar">
+        <h2>Learna</h2>
+
+        <nav class="toolbar-links">
+            <a th:href="@{/}">
+                <ion-icon name="home-outline"></ion-icon>
+                Inicio
+            </a>
+            <a th:href="@{/cursos}">
+                <ion-icon name="book-outline"></ion-icon>
+                Cursos
+            </a>
+            <a th:href="@{/contacto}">
+                <ion-icon name="accessibility-outline"></ion-icon>
+                Contacto
+            </a>
+        </nav>
+
+        <div class="toolbar-actions">
+            <a th:href="@{/login}" class="btn-login-toolbar">Iniciar Sesión</a>
+            <div class="dark-mode">
+                <div class="circle">
+                    <ion-icon class="sun" name="sunny"></ion-icon>
+                    <ion-icon class="moon" name="moon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="contacto-container">
+
+        <div class="contacto-header">
+            <h1>Contacto</h1>
+            <p>¿Tienes alguna duda? Escríbenos y te responderemos lo antes posible.</p>
+        </div>
+
+        <!-- Mensaje de éxito -->
+        <div class="mensaje-exito" th:if="${param.enviado}">
+            ✅ ¡Mensaje enviado correctamente! Te responderemos pronto.
+        </div>
+
+        <form class="contacto-form" th:action="@{/contacto}" th:object="${contacto}" method="post">
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <div class="input-wrapper">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <input type="text" th:field="*{nombre}" placeholder="Tu nombre" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <div class="input-wrapper">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" th:field="*{email}" placeholder="Tu email" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Asunto</label>
+                <div class="input-wrapper">
+                    <ion-icon name="chatbox-outline"></ion-icon>
+                    <input type="text" th:field="*{asunto}" placeholder="Asunto" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Mensaje</label>
+                <textarea th:field="*{mensaje}" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="button">Enviar mensaje</button>
+
+        </form>
+
+    </main>
+
+    <script th:src="@{/js/global.js}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

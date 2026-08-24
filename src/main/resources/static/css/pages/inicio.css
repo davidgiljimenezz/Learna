@@ -1,0 +1,270 @@
+/* ===========================
+   BODY INDEX
+=========================== */
+body{
+    display: block;
+    padding-top: 60px;
+}
+/* ===========================
+   HERO
+=========================== */
+.hero{
+    background: linear-gradient(135deg, #3AB397 0%, #3AA8AD 100%);
+    padding: 120px 20px 80px; /* ← antes era 80px arriba, ahora 120px */
+    text-align: center;
+    color: white;
+}
+.hero h1{
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.hero p{
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+.hero .button{
+    background-color: white;
+    color: #3AB397;
+    font-size: 15px;
+    padding: 0 30px;
+    border: 2px solid white;
+}
+.hero .button:hover{
+    background-color: #36e4bb;
+    color: white;
+    border-color: #36e4bb;
+}
+body.active .hero .button{
+    background-color: white !important;
+    color: #3AB397 !important;
+}
+
+/* ===========================
+   SECCIONES GENERALES
+=========================== */
+.categorias,
+.cursos-section{
+    padding: 40px 60px;
+    background-color: #F0F4F3;
+    transition: background-color 0.5s ease;
+}
+body.active .categorias,
+body.active .cursos-section{
+    background-color: #2C2C2E;
+}
+
+.section-title{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #3AB397, #3AA8AD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===========================
+   CATEGORÍAS
+=========================== */
+.cats{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.cat{
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid #3AB397;
+    background: white;
+    transition: all 0.3s ease;
+}
+.cat span{
+    background: linear-gradient(90deg, #3AB397, #3AA8AD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.cat.active,
+.cat:hover{
+    background: linear-gradient(90deg, #3AB397, #3AA8AD);
+    border-color: transparent;
+}
+.cat.active span,
+.cat:hover span{
+    -webkit-text-fill-color: white;
+    background: none;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+body.active .cat{
+    background-color: #1E1E1F;
+    border-color: #3AB397;
+}
+body.active .cat.active,
+body.active .cat:hover{
+    background: linear-gradient(90deg, #3AB397, #3AA8AD);
+    border-color: transparent;
+}
+
+/* ===========================
+   GRID DE CURSOS
+=========================== */
+.cursos-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ===========================
+   TARJETAS DE CURSO
+=========================== */
+.card{
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+    position: relative;
+}
+.card:hover{
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(58,179,151,0.25);
+}
+body.active .card{
+    background-color: #1E1E1F;
+}
+
+.card-img{
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    transition: transform 0.35s ease;
+    position: relative;
+}
+.card:hover .card-img{
+    transform: scale(1.1);
+}
+
+.card-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(135deg, #3AB397, #3AA8AD);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+.card:hover .card-overlay{
+    opacity: 0.15;
+}
+
+.card-body{
+    padding: 15px;
+}
+
+.card-cat{
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #3AB397, #3AA8AD);
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.card-title{
+    font-size: 15px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+body.active .card-title{
+    color: white;
+}
+
+.card-desc{
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+body.active .card-desc{
+    color: #aaa;
+}
+
+.card-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-price{
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #3AB397, #3AA8AD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-btn{
+    background: linear-gradient(90deg, #3AB397, #3AA8AD);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.card-btn:hover{
+    opacity: 0.85;
+    transform: scale(1.03);
+}
+
+/* ===========================
+   RESPONSIVE - INDEX
+=========================== */
+@media (max-width: 900px){
+    .hero h1{
+        font-size: 26px;
+        letter-spacing: 2px;
+    }
+    .categorias,
+    .cursos-section{
+        padding: 30px 20px;
+    }
+    .cursos-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .toolbar-actions{
+        gap: 10px;
+    }
+    .btn-login-toolbar{
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 600px){
+    .cursos-grid{
+        grid-template-columns: 1fr;
+    }
+}

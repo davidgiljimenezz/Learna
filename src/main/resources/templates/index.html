@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/pages/inicio.css}">
+    <title>Learna</title>
+</head>
+
+<body>
+
+    <div class="toolbar">
+        <h2>Learna</h2>
+
+        <nav class="toolbar-links">
+            <a th:href="@{/}">
+                <ion-icon name="home-outline"></ion-icon>
+                Inicio
+            </a>
+            <a th:href="@{/cursos}">
+                <ion-icon name="book-outline"></ion-icon>
+                Cursos
+            </a>
+            <a th:href="@{/contacto}">
+                <ion-icon name="accessibility-outline"></ion-icon>
+                Contacto
+            </a>
+        </nav>
+
+        <div class="toolbar-actions">
+            <a th:href="@{/login}" class="btn-login-toolbar">Iniciar Sesión</a>
+            <div class="dark-mode">
+                <div class="circle">
+                    <ion-icon class="sun" name="sunny"></ion-icon>
+                    <ion-icon class="moon" name="moon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1 class="animar">DONDE NACEN LOS SUEÑOS</h1>
+        <p class="animar">Aprende a tu ritmo con los mejores profesores</p>
+        <button class="button animar">Ver todos los cursos</button>
+    </section>
+
+    <!-- Categorías -->
+    <section class="categorias">
+        <h2 class="section-title animar">Categorías</h2>
+        <div class="cats animar">
+            <button class="cat active"><span>Todos</span></button>
+            <button class="cat"><span>Programación</span></button>
+            <button class="cat"><span>Diseño</span></button>
+            <button class="cat"><span>Marketing</span></button>
+            <button class="cat"><span>Idiomas</span></button>
+        </div>
+    </section>
+
+    <!-- Cursos -->
+    <section class="cursos-section">
+        <h2 class="section-title animar">Cursos destacados</h2>
+        <div class="cursos-grid">
+
+            <div class="card animar">
+                <div class="card-img" style="background:#E1F5EE">💻</div>
+                <div class="card-body">
+                    <span class="card-cat">Programación</span>
+                    <h3 class="card-title">Java desde cero</h3>
+                    <p class="card-desc">Aprende Java con proyectos reales paso a paso</p>
+                    <div class="card-footer">
+                        <span class="card-price">29€</span>
+                        <button class="card-btn">Ver curso</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card animar">
+                <div class="card-img" style="background:#EEE8FE">🎨</div>
+                <div class="card-body">
+                    <span class="card-cat">Diseño</span>
+                    <h3 class="card-title">Figma para principiantes</h3>
+                    <p class="card-desc">Crea interfaces profesionales desde el primer día</p>
+                    <div class="card-footer">
+                        <span class="card-price">19€</span>
+                        <button class="card-btn">Ver curso</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card animar">
+                <div class="card-img" style="background:#FAECE7">📈</div>
+                <div class="card-body">
+                    <span class="card-cat">Marketing</span>
+                    <h3 class="card-title">Marketing digital</h3>
+                    <p class="card-desc">Estrategias reales para crecer en redes sociales</p>
+                    <div class="card-footer">
+                        <span class="card-price">24€</span>
+                        <button class="card-btn">Ver curso</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card animar">
+                <div class="card-img" style="background:#E6F1FB">🌐</div>
+                <div class="card-body">
+                    <span class="card-cat">Idiomas</span>
+                    <h3 class="card-title">Inglés nivel B2</h3>
+                    <p class="card-desc">Sube tu nivel de inglés con clases dinámicas</p>
+                    <div class="card-footer">
+                        <span class="card-price">34€</span>
+                        <button class="card-btn">Ver curso</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card animar">
+                <div class="card-img" style="background:#E1F5EE">🐍</div>
+                <div class="card-body">
+                    <span class="card-cat">Programación</span>
+                    <h3 class="card-title">Python para datos</h3>
+                    <p class="card-desc">Analiza datos reales con Python y pandas</p>
+                    <div class="card-footer">
+                        <span class="card-price">39€</span>
+                        <button class="card-btn">Ver curso</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card animar">
+                <div class="card-img" style="background:#EAF3DE">📸</div>
+                <div class="card-body">
+                    <span class="card-cat">Diseño</span>
+                    <h3 class="card-title">Fotografía creativa</h3>
+                    <p class="card-desc">Domina la luz y la composición fotográfica</p>
+                    <div class="card-footer">
+                        <span class="card-price">22€</span>
+                        <button class="card-btn">Ver curso</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <section class="porque-section">
+        <h2 class="section-title animar">¿Por qué elegirnos?</h2>
+        <div class="porque-grid">
+            <div class="porque-card animar">
+                <div class="porque-icon"🎯></div>
+                <h3> A tu ritmo</h3>
+                <p>Sin horarios fijos, aprende cuando y donde quieras</p>
+            </div>
+            <div class="porque-card animar">
+                <div class="porque-icon">👨‍🏫</div>
+                <h3> Expertos reales</h3>
+                <p>Nuestros instructores son profesionales con años de experiencia</p>
+            </div>
+            <div class="porque-card animar">
+                <div class="porque-icon">📜</div>
+                <h3> Certificado incluído</h3>
+                <p>Aprende sin gastar una fortuna, cursos de calidad a buen precio</p>
+            </div>
+            <div class="porque-card animar">
+                <div class="porque-icon">💬</div>
+                <h3> Soporte continuo</h3>
+                <p>Obtén ayuda de nuestros expertos y la comunidad en todo momento</p>
+            </div>
+        </div>
+    </section>
+
+    <script th:src="@{/js/global.js}"></script>
+    <script th:src="@{/js/pages/inicio.js}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
