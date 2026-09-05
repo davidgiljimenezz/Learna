@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/global.css}">
-    <link rel="stylesheet" th:href="@{/css/pages/inicio.css}">
+    <link rel="stylesheet" th:href="@{/css/pages/inicio.css(v=3)}">
     <title>Learna</title>
 </head>
 
@@ -41,9 +41,9 @@
 
     <!-- Hero -->
     <section class="hero">
-        <h1 class="animar">DONDE NACEN LOS SUEÑOS</h1>
+        <h1 class="animar">Donde nacen los sueños</h1>
         <p class="animar">Aprende a tu ritmo con los mejores profesores</p>
-        <button class="button animar">Ver todos los cursos</button>
+        <a class="button animar" th:href="@{/cursos}">Ver todos los cursos</a>
     </section>
 
     <!-- Categorías -->

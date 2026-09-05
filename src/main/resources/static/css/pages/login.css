@@ -317,6 +317,7 @@ body.active .container-input input::placeholder {
         width: 100%;
         max-width: 440px;
         height: auto;
+        display: grid;
         flex-direction: column;
         padding: 32px 24px;
         border-radius: 20px;
@@ -330,7 +331,11 @@ body.active .container-input input::placeholder {
 
     .container-form {
         width: 100%;
+        grid-area: 1 / 1;
         overflow: visible;
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.35s ease, transform 0.35s ease;
     }
 
     .container-form form {
@@ -353,14 +358,22 @@ body.active .container-input input::placeholder {
         margin-bottom: 26px;
     }
 
-    .container:not(.toggle) .container-form:has(.sign-up),
-    .container.toggle .container-form:has(.sign-in) {
-        display: none;
+    .container:not(.toggle) .container-form:has(.sign-up) {
+        opacity: 0;
+        transform: translateX(24px);
+        pointer-events: none;
     }
 
-    .container.toggle .sign-in,
-    .container.toggle .sign-up {
-        transform: none;
+    .container.toggle .container-form:has(.sign-in) {
+        opacity: 0;
+        transform: translateX(-24px);
+        pointer-events: none;
+    }
+
+    .container.toggle .container-form:has(.sign-up) {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
     }
 
     .container-input {
