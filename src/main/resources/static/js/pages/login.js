@@ -3,12 +3,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".container");
     const btnSignIn = document.querySelector("#btn-sign-in");
     const btnSignUp = document.querySelector("#btn-sign-up");
-    const btnRegistrarForm = document.querySelector("#btn-registrar-form");
+    const formularioRegistro = document.querySelector(".sign-up");
     const passwordRegister = document.querySelector("#password-register");
     const errorRegister = document.querySelector("#error-register");
-    const btnLoginForm = document.querySelector("#btn-login-form");
+    const formularioLogin = document.querySelector(".sign-in");
     const passwordLogin = document.querySelector("#password-login");
     const errorLogin = document.querySelector("#error-login");
+
+    const mobileSignIn = document.querySelector("#mobile-sign-in");
+    const mobileSignUp = document.querySelector("#mobile-sign-up");
+
+    mobileSignIn.addEventListener("click", () => {
+        container.classList.remove("toggle");
+        body.classList.remove("register-mode");
+    });
+
+    mobileSignUp.addEventListener("click", () => {
+        container.classList.add("toggle");
+        body.classList.add("register-mode");
+    });
 
     btnSignIn.addEventListener("click", () => {
         container.classList.remove("toggle");
@@ -19,8 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.classList.add("toggle");
         body.classList.add("register-mode");
     });
-
-    btnRegistrarForm.addEventListener("click", (event) => {
+    formularioRegistro.addEventListener("submit", (event) => {
         event.preventDefault();
 
         if (passwordRegister.value.length < 8 || passwordRegister.value.length > 16) {
@@ -32,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "/index";
     });
 
-    btnLoginForm.addEventListener("click", (event) => {
+    formularioLogin.addEventListener("submit", (event) => {
         event.preventDefault();
 
         if (passwordLogin.value.length < 8 || passwordLogin.value.length > 16) {
