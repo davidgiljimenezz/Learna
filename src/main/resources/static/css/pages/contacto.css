@@ -184,59 +184,11 @@ body.active .contacto-form textarea {
         padding-top: 116px;
     }
 
-    .toolbar {
-        height: 116px;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: 56px 44px;
-        gap: 0;
-        padding: 8px 20px;
-    }
 
-    .toolbar h2 {
-        font-size: 23px;
-    }
 
-    .toolbar-actions {
-        grid-column: 2;
-        grid-row: 1;
-        justify-self: end;
-        gap: 12px;
-    }
 
-    .toolbar-links {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        position: static;
-        transform: none;
-        justify-content: space-between;
-        width: 100%;
-        gap: 6px;
-        border-top: 1px solid rgba(255, 255, 255, 0.25);
-        padding-top: 4px;
-    }
 
-    .toolbar-links a {
-        justify-content: center;
-        min-height: 40px;
-        font-size: 13px;
-        padding: 8px 10px;
-    }
 
-    .btn-login-toolbar {
-        min-height: 40px;
-        display: flex;
-        align-items: center;
-        padding: 8px 12px;
-        border-radius: 8px;
-        font-size: 12px;
-    }
-
-    .dark-mode {
-        width: 48px;
-        height: 28px;
-        flex-shrink: 0;
-    }
 
     .contacto-container {
         margin: 28px auto;

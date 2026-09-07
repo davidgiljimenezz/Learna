@@ -275,31 +275,13 @@ body.active .container-input input::placeholder {
     body {
         height: auto;
         min-height: 100dvh;
-        padding: 100px 20px 32px;
+        padding: 148px 20px 32px;
         justify-content: flex-start;
     }
 
-    .toolbar {
-        height: 68px;
-        flex-direction: row;
-        padding: 0 20px;
-        gap: 12px;
-    }
 
-    .toolbar-links {
-        margin-left: auto;
-        gap: 0;
-    }
 
-    .toolbar-links a {
-        padding: 10px;
-    }
 
-    .dark-mode {
-        width: 56px;
-        height: 30px;
-        flex-shrink: 0;
-    }
 
     .title-login {
         max-width: 400px;

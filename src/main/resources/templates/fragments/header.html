@@ -1,0 +1,29 @@
+<header xmlns:th="http://www.thymeleaf.org" th:fragment="header" class="toolbar">
+        <h2>Learna</h2>
+
+        <nav class="toolbar-links">
+            <a th:href="@{/}">
+                <ion-icon name="home-outline"></ion-icon>
+                Inicio
+            </a>
+            <a th:href="@{/cursos}">
+                <ion-icon name="book-outline"></ion-icon>
+                Cursos
+            </a>
+            <a th:href="@{/contacto}">
+                <ion-icon name="accessibility-outline"></ion-icon>
+                Contacto
+            </a>
+        </nav>
+
+        <div class="toolbar-actions">
+            <a th:href="@{/login}" class="btn-login-toolbar">Iniciar Sesión</a>
+            <div class="dark-mode">
+                <div class="circle">
+                    <ion-icon class="sun" name="sunny"></ion-icon>
+                    <ion-icon class="moon" name="moon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+
