@@ -26,11 +26,13 @@
 
                 <div class="container-input">
                     <ion-icon name="mail-outline"></ion-icon>
-                    <input type="email" placeholder="Email" required>
+                    <label class="visually-hidden" for="email-login">Correo electrónico</label>
+                    <input type="email" id="email-login" placeholder="Email" required>
                 </div>
 
                 <div class="container-input">
                     <ion-icon name="lock-closed-outline"></ion-icon>
+                    <label class="visually-hidden" for="password-login">Contraseña</label>
                     <input type="password" id="password-login" placeholder="Contraseña" minlength="8" maxlength="16" required>
                 </div>
 
@@ -48,15 +50,18 @@
                 <span> Use su correo electrónico para registrarse </span>
                 <div class="container-input">
                     <ion-icon name="person-outline"></ion-icon>
-                    <input type="text" placeholder="Nombre" required>
+                    <label class="visually-hidden" for="nombre-register">Nombre</label>
+                    <input type="text" id="nombre-register" placeholder="Nombre" required>
 
                 </div>
                 <div class="container-input">
                     <ion-icon name="mail-outline"></ion-icon>
-                    <input type="email" placeholder="Email" required>
+                    <label class="visually-hidden" for="email-register">Correo electrónico</label>
+                    <input type="email" id="email-register" placeholder="Email" required>
                 </div>
                 <div class="container-input">
                     <ion-icon name="lock-closed-outline"></ion-icon>
+                    <label class="visually-hidden" for="password-register">Contraseña</label>
                     <input type="password" id="password-register" placeholder="Contraseña" minlength="8" maxlength="16" required>
                 </div>
                 <p class ="error" id="error-register"></p>
@@ -84,8 +89,8 @@
 
     <script th:src="@{/js/global.js(v=2)}"></script>
     <script th:src="@{/js/pages/login.js(v=2)}"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" integrity="sha384-xyQ/Vpt1cq1pdPYlRaT/QkcSj2vrYyWI3WOhxGBzqnP1vgvsS2yrhWXe3/wIoCr5" crossorigin="anonymous"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" integrity="sha384-KAUcUASKfGZ0sxENVFRiH12jtpvd9SsVpgzvYdvv8ZMLqB99G3gX3DAts418wzIC" crossorigin="anonymous"></script>
 </body>
 
 </html>
