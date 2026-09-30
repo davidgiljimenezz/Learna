@@ -149,13 +149,15 @@ body.active .cat:hover {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    scale: 1;
+    transition: opacity 0.6s ease, transform 0.6s ease,
+        scale 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
     cursor: pointer;
     position: relative;
 }
 
 .card:hover {
-    transform: scale(1.04);
+    scale: 1.04;
     box-shadow: 0 8px 24px rgba(58, 179, 151, 0.25);
 }
 
@@ -169,7 +171,7 @@ body.active .card {
     align-items: center;
     justify-content: center;
     font-size: 48px;
-    transition: transform 0.35s ease;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
 }
 
@@ -292,6 +294,57 @@ body.active .card-desc {
     }
 }
 
+/* Tarjetas de ventajas para todos los tamaños de pantalla. */
+.porque-section {
+    padding: 48px 60px 64px;
+    background: #e5efeb;
+}
+
+.porque-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.porque-card {
+    padding: 24px;
+    border-radius: 16px;
+    background: white;
+}
+
+.porque-icon {
+    font-size: 30px;
+    margin-bottom: 16px;
+}
+
+.porque-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #203c34;
+}
+
+.porque-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #52685f;
+}
+
+body.active .porque-section {
+    background: #242b29;
+}
+
+body.active .porque-card {
+    background: #1e1e1f;
+}
+
+body.active .porque-card h3 {
+    color: #edf5f2;
+}
+
+body.active .porque-card p {
+    color: #bbcfc6;
+}
+
 /* Ajustes exclusivos para móvil y tablet */
 @media (max-width: 900px) {
     body {
@@ -320,56 +373,6 @@ body.active .card-desc {
 
     .card-btn {
         min-height: 44px;
-    }
-
-    .porque-section {
-        padding: 48px 60px 64px;
-        background: #e5efeb;
-    }
-
-    .porque-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 20px;
-    }
-
-    .porque-card {
-        padding: 24px;
-        border-radius: 16px;
-        background: white;
-    }
-
-    .porque-icon {
-        font-size: 30px;
-        margin-bottom: 16px;
-    }
-
-    .porque-card h3 {
-        font-size: 16px;
-        margin-bottom: 10px;
-        color: #203c34;
-    }
-
-    .porque-card p {
-        font-size: 14px;
-        line-height: 1.7;
-        color: #52685f;
-    }
-
-    body.active .porque-section {
-        background: #242b29;
-    }
-
-    body.active .porque-card {
-        background: #1e1e1f;
-    }
-
-    body.active .porque-card h3 {
-        color: #edf5f2;
-    }
-
-    body.active .porque-card p {
-        color: #bbcfc6;
     }
 
     .card[hidden] {
@@ -563,6 +566,10 @@ body.active .card-desc {
 
 @media (hover: none) {
 
+    .card:hover {
+        scale: 1;
+    }
+
     .card:hover,
     .card:hover .card-img,
     .card-btn:hover {
@@ -575,5 +582,10 @@ body.active .card-desc {
         opacity: 1;
         transform: none;
         transition: none;
+    }
+
+    /* Conserva el efecto de cursor solicitado sin animar la entrada al hacer scroll. */
+    .card {
+        transition: scale 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
     }
 }
