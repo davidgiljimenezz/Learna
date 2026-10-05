@@ -23,7 +23,7 @@
             ✅ ¡Mensaje enviado correctamente! Te responderemos pronto.
         </div>
 
-        <form class="contacto-form" th:action="@{/contacto}" th:object="${contacto}" method="post">
+        <form class="contacto-form" th:action="@{/contacto}" th:object="${contacto}" method="post" novalidate>
 
             <div class="form-group">
                 <label>Nombre</label>
@@ -31,6 +31,9 @@
                     <ion-icon name="person-outline"></ion-icon>
                     <input type="text" th:field="*{nombre}" placeholder="Tu nombre" required>
                 </div>
+                <p class = "error-campo"
+                    th:if="${#fields.hasErrors('nombre')}"
+                    th:errors="*{nombre}"></p>
             </div>
 
             <div class="form-group">
@@ -39,6 +42,9 @@
                     <ion-icon name="mail-outline"></ion-icon>
                     <input type="email" th:field="*{email}" placeholder="Tu email" required>
                 </div>
+                 <p class = "error-campo"
+                    th:if="${#fields.hasErrors('email')}"
+                    th:errors="*{email}"></p>
             </div>
 
             <div class="form-group">
@@ -47,11 +53,17 @@
                     <ion-icon name="chatbox-outline"></ion-icon>
                     <input type="text" th:field="*{asunto}" placeholder="Asunto" required>
                 </div>
+                <p class = "error-campo"
+                    th:if="${#fields.hasErrors('asunto')}"
+                    th:errors="*{asunto}"></p>
             </div>
 
             <div class="form-group">
                 <label>Mensaje</label>
                 <textarea th:field="*{mensaje}" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+                <p class = "error-campo"
+                    th:if="${#fields.hasErrors('mensaje')}"
+                    th:errors="*{mensaje}"></p>
             </div>
 
             <button type="submit" class="button">Enviar mensaje</button>

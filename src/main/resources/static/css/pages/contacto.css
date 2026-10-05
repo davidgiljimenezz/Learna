@@ -165,6 +165,17 @@ body.active .contacto-form textarea {
     font-size: 16px;
     margin-top: 10px;
 }
+.error-campo {
+    margin-top: 6px;
+    color: #b42318;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+body.active .error-campo {
+    color: #ff9b92;
+}
 
 /* ===========================
    RESPONSIVE

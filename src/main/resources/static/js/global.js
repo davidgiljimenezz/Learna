@@ -12,10 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const darkMode = document.querySelector(".dark-mode");
+    const temaGuardado = localStorage.getItem("modoOscuro");
+
+    if (temaGuardado === "true") {
+        document.body.classList.add("active");
+    }
 
     if (darkMode) {
         darkMode.addEventListener("click", () => {
             document.body.classList.toggle("active");
+            const modoOscuro = document.body.classList.contains("active");
+            localStorage.setItem("modoOscuro", modoOscuro);
         });
     }
 });
