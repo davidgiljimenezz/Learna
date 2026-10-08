@@ -4,13 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/global.css(v=5)}">
+    <link rel="stylesheet" th:href="@{/css/pages/cursos.css}">
     <title>Cursos - Learna</title>
 </head>
 <body>
     <header th:replace="~{fragments/header :: header}"></header>
 
-    <main>
-        <h1>Próximamente...</h1>
+    <main class="academy-main">
+        <div class="catalog-heading">
+            <p class="eyebrow">TU PRÓXIMO PASO</p>
+            <h1>Aprende. Practica. Avanza.</h1>
+            <p>Encuentra un curso y empieza a construir nuevas habilidades.</p>
+        </div>
+        <section class="empty-state" th:if="${#lists.isEmpty(cursos)}">
+            <h2>Estamos preparando nuevos cursos</h2>
+            <p>El catálogo estará disponible cuando publiquemos los primeros cursos.</p>
+            <a class="course-button" th:href="@{/contacto}">Consultar a la academia</a>
+        </section>
+        <section class="course-grid" aria-label="Catálogo de cursos">
+            <article class="course-card" th:each="curso : ${cursos}">
+                <span class="course-category" th:text="${curso.categoria}"></span>
+                <h2 th:text="${curso.titulo}"></h2>
+                <p class="course-description" th:text="${curso.descripcion}"></p>
+                <p class="course-meta"><span th:text="${curso.nivel}"></span> · <span th:text="${curso.duracionHoras} + ' horas'"></span></p>
+                <a class="course-button" th:href="@{/cursos/{id}(id=${curso.id})}">Ver curso</a>
+            </article>
+        </section>
     </main>
 
     <script th:src="@{/js/global.js(v=2)}"></script>

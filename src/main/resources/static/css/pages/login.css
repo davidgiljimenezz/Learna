@@ -1,6 +1,10 @@
 /* ===========================
    TÍTULO LOGIN
 =========================== */
+.auth-notice { max-width: 300px; padding: 8px 16px; color: #237d68; font-size: 13px; text-align: center; }
+body.active .auth-notice { color: #73d5b9; }
+.container-form .error { max-width: 320px; font-size: 12px; text-align: center; }
+.container-form .error p { margin: 4px 12px; }
 .title-login {
     text-align: center;
     margin-bottom: 20px;

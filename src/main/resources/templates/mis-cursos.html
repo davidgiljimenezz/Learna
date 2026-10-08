@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis cursos - Learna</title>
+    <link rel="stylesheet" th:href="@{/css/global.css(v=5)}">
+    <link rel="stylesheet" th:href="@{/css/pages/cursos.css}">
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+    <main class="academy-main">
+        <div class="catalog-heading">
+            <p class="eyebrow">TU ESPACIO DE APRENDIZAJE</p>
+            <h1>Mis cursos</h1>
+            <p>Aquí encontrarás todos los cursos en los que te has inscrito.</p>
+        </div>
+        <p class="academy-notice" th:if="${mensaje}" th:text="${mensaje}" role="status"></p>
+        <section class="empty-state" th:if="${#lists.isEmpty(inscripciones)}">
+            <h2>Tu primer curso te espera</h2>
+            <p>Explora el catálogo y elige lo que quieres aprender.</p>
+            <a class="course-button" th:href="@{/cursos}">Explorar cursos</a>
+        </section>
+        <section class="course-grid" aria-label="Mis inscripciones">
+            <article class="course-card" th:each="inscripcion : ${inscripciones}">
+                <span class="course-category" th:text="${inscripcion.curso.categoria}"></span>
+                <h2 th:text="${inscripcion.curso.titulo}"></h2>
+                <p class="course-meta" th:text="'Inscrito el ' + ${#temporals.format(inscripcion.fecha, 'dd/MM/yyyy')}"></p>
+                <a th:if="${inscripcion.curso.publicado}" class="course-button" th:href="@{/cursos/{id}(id=${inscripcion.curso.id})}">Ver curso</a>
+                <p th:unless="${inscripcion.curso.publicado}">Este curso no está disponible actualmente.</p>
+            </article>
+        </section>
+    </main>
+    <script th:src="@{/js/global.js(v=2)}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>

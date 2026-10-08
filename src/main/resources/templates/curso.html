@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${curso.titulo} + ' - Learna'">Curso - Learna</title>
+    <link rel="stylesheet" th:href="@{/css/global.css(v=5)}">
+    <link rel="stylesheet" th:href="@{/css/pages/cursos.css}">
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+    <main class="academy-main">
+        <a class="back-link" th:href="@{/cursos}">← Volver al catálogo</a>
+        <article class="course-detail">
+            <span class="course-category" th:text="${curso.categoria}"></span>
+            <h1 th:text="${curso.titulo}"></h1>
+            <p class="course-meta"><span th:text="${curso.nivel}"></span> · <span th:text="${curso.duracionHoras} + ' horas'"></span></p>
+            <p class="detail-description" th:text="${curso.descripcion}"></p>
+            <a th:if="${inscrito}" class="course-button" th:href="@{/mis-cursos}">Ya estás inscrito · Ver mis cursos</a>
+            <form th:if="${usuarioActual != null and !inscrito}" th:action="@{/cursos/{id}/inscripcion(id=${curso.id})}" method="post">
+                <button class="course-button" type="submit">Inscribirme</button>
+            </form>
+            <a th:if="${usuarioActual == null}" class="course-button" th:href="@{/login}">Inicia sesión para inscribirte</a>
+        </article>
+    </main>
+    <script th:src="@{/js/global.js(v=2)}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>

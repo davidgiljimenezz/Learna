@@ -24,6 +24,7 @@
         </div>
 
         <form class="contacto-form" th:action="@{/contacto}" th:object="${contacto}" method="post" novalidate>
+            <p class="error-campo" th:each="error : ${#fields.globalErrors()}" th:text="${error}" role="alert"></p>
 
             <div class="form-group">
                 <label>Nombre</label>

@@ -17,7 +17,11 @@
         </nav>
 
         <div class="toolbar-actions">
-            <a th:href="@{/login}" class="btn-login-toolbar">Iniciar Sesión</a>
+            <a th:if="${usuarioActual == null}" th:href="@{/login}" class="btn-login-toolbar">Iniciar Sesión</a>
+            <a th:if="${usuarioActual != null}" th:href="@{/mis-cursos}" class="btn-login-toolbar">Mis cursos</a>
+            <form th:if="${usuarioActual != null}" th:action="@{/logout}" method="post" class="logout-form">
+                <button type="submit" class="btn-login-toolbar">Salir</button>
+            </form>
             <div class="dark-mode">
                 <div class="circle">
                     <ion-icon class="sun" name="sunny"></ion-icon>

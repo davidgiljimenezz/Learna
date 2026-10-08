@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,87 +37,22 @@
         <h2 class="section-title animar">Cursos destacados</h2>
         <div class="cursos-grid">
 
-            <div class="card animar">
-                <div class="card-img" style="background:#E1F5EE">💻</div>
-                <div class="card-body">
-                    <span class="card-cat">Programación</span>
-                    <h3 class="card-title">Java desde cero</h3>
-                    <p class="card-desc">Aprende Java con proyectos reales paso a paso</p>
-                    <div class="card-footer">
-                        <span class="card-price">29€</span>
-                        <button class="card-btn">Ver curso</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card animar">
+            <div th:each="curso : ${cursos}" class="card animar">
                 <div class="card-img" style="background:#EEE8FE">🎨</div>
                 <div class="card-body">
-                    <span class="card-cat">Diseño</span>
-                    <h3 class="card-title">Figma para principiantes</h3>
-                    <p class="card-desc">Crea interfaces profesionales desde el primer día</p>
+                    <span th:text="${curso.categoria}" class="card-cat">Diseño</span>
+                    <h3 th:text="${curso.titulo}" class="card-title">Figma para principiantes</h3>
+                    <p th:text="${curso.descripcion}" class="card-desc">Crea interfaces profesionales desde el primer
+                        día</p>
                     <div class="card-footer">
                         <span class="card-price">19€</span>
-                        <button class="card-btn">Ver curso</button>
+                        <a th:href="@{/cursos/{id}(id=${curso.id})}" class="card-btn">Ver curso</a>
                     </div>
                 </div>
             </div>
-
-            <div class="card animar">
-                <div class="card-img" style="background:#FAECE7">📈</div>
-                <div class="card-body">
-                    <span class="card-cat">Marketing</span>
-                    <h3 class="card-title">Marketing digital</h3>
-                    <p class="card-desc">Estrategias reales para crecer en redes sociales</p>
-                    <div class="card-footer">
-                        <span class="card-price">24€</span>
-                        <button class="card-btn">Ver curso</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card animar">
-                <div class="card-img" style="background:#E6F1FB">🌐</div>
-                <div class="card-body">
-                    <span class="card-cat">Idiomas</span>
-                    <h3 class="card-title">Inglés nivel B2</h3>
-                    <p class="card-desc">Sube tu nivel de inglés con clases dinámicas</p>
-                    <div class="card-footer">
-                        <span class="card-price">34€</span>
-                        <button class="card-btn">Ver curso</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card animar">
-                <div class="card-img" style="background:#E1F5EE">🐍</div>
-                <div class="card-body">
-                    <span class="card-cat">Programación</span>
-                    <h3 class="card-title">Python para datos</h3>
-                    <p class="card-desc">Analiza datos reales con Python y pandas</p>
-                    <div class="card-footer">
-                        <span class="card-price">39€</span>
-                        <button class="card-btn">Ver curso</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card animar">
-                <div class="card-img" style="background:#EAF3DE">📸</div>
-                <div class="card-body">
-                    <span class="card-cat">Diseño</span>
-                    <h3 class="card-title">Fotografía creativa</h3>
-                    <p class="card-desc">Domina la luz y la composición fotográfica</p>
-                    <div class="card-footer">
-                        <span class="card-price">22€</span>
-                        <button class="card-btn">Ver curso</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
-    
+
     <!-- Footer -->
     <section class="porque-section">
         <h2 class="section-title animar">¿Por qué elegirnos?</h2>
@@ -149,4 +85,5 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

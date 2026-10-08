@@ -8,7 +8,7 @@
     <title>Learna | Aprende con los mejores </title>
 </head>
 
-<body>
+<body th:classappend="${mostrarRegistro} ? 'register-mode'">
 
     <header th:replace="~{fragments/header :: header}"></header>
 
@@ -17,9 +17,9 @@
     </div>
 
 
-    <div class="container">
+    <div class="container" th:classappend="${mostrarRegistro} ? 'toggle'">
         <div class="container-form">
-            <form class="sign-in">
+            <form class="sign-in" th:action="@{/login}" method="post">
                 <h2>Iniciar Sesión</h2>
 
                 <span> Use su correo y contraseña </span>
@@ -27,17 +27,18 @@
                 <div class="container-input">
                     <ion-icon name="mail-outline"></ion-icon>
                     <label class="visually-hidden" for="email-login">Correo electrónico</label>
-                    <input type="email" id="email-login" placeholder="Email" required>
+                    <input type="email" id="email-login" name="email" placeholder="Email" autocomplete="username" required>
                 </div>
 
                 <div class="container-input">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <label class="visually-hidden" for="password-login">Contraseña</label>
-                    <input type="password" id="password-login" placeholder="Contraseña" minlength="8" maxlength="16" required>
+                    <input type="password" id="password-login" name="password" placeholder="Contraseña" autocomplete="current-password" required>
                 </div>
 
-                <a href="#">¿Olvidaste tu contraseña?</a>
-                <p class="error" id="error-login"></p>
+                <p class="error" id="error-login" th:if="${param.error}" role="alert">Email o contraseña incorrectos.</p>
+                <p class="auth-notice" th:if="${param.registrado}" role="status">Cuenta creada. Ya puedes iniciar sesión.</p>
+                <p class="auth-notice" th:if="${param.salida}" role="status">Has cerrado la sesión.</p>
 
                 <button class="button" id="btn-login-form">Iniciar Sesión</button>
                 <div class="mobile-form-switch">¿No tienes cuenta? <button type="button" id="mobile-sign-up">Crear una cuenta</button></div>
@@ -45,26 +46,28 @@
 
         </div>
         <div class="container-form">
-            <form class="sign-up">
+            <form class="sign-up" th:action="@{/registro}" th:object="${registro}" method="post">
                 <h2>Registrarse</h2>
                 <span> Use su correo electrónico para registrarse </span>
                 <div class="container-input">
                     <ion-icon name="person-outline"></ion-icon>
                     <label class="visually-hidden" for="nombre-register">Nombre</label>
-                    <input type="text" id="nombre-register" placeholder="Nombre" required>
+                    <input type="text" id="nombre-register" name="nombre" th:value="*{nombre}" placeholder="Nombre" maxlength="100" autocomplete="name" required>
 
                 </div>
                 <div class="container-input">
                     <ion-icon name="mail-outline"></ion-icon>
                     <label class="visually-hidden" for="email-register">Correo electrónico</label>
-                    <input type="email" id="email-register" placeholder="Email" required>
+                    <input type="email" id="email-register" name="email" th:value="*{email}" placeholder="Email" maxlength="254" autocomplete="email" required>
                 </div>
                 <div class="container-input">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <label class="visually-hidden" for="password-register">Contraseña</label>
-                    <input type="password" id="password-register" placeholder="Contraseña" minlength="8" maxlength="16" required>
+                    <input type="password" id="password-register" name="password" placeholder="Contraseña" minlength="8" maxlength="64" autocomplete="new-password" required>
                 </div>
-                <p class ="error" id="error-register"></p>
+                <div class="error" id="error-register" th:if="${#fields.hasAnyErrors()}" role="alert">
+                    <p th:each="error : ${#fields.allErrors()}" th:text="${error}"></p>
+                </div>
                 <button class="button1" id="btn-registrar-form">Registrarse</button>
                 <div class="mobile-form-switch">¿Ya tienes cuenta? <button type="button" id="mobile-sign-in">Acceder</button></div>
             </form>
@@ -88,7 +91,7 @@
     </div>
 
     <script th:src="@{/js/global.js(v=2)}"></script>
-    <script th:src="@{/js/pages/login.js(v=2)}"></script>
+    <script th:src="@{/js/pages/login.js(v=3)}"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" integrity="sha384-xyQ/Vpt1cq1pdPYlRaT/QkcSj2vrYyWI3WOhxGBzqnP1vgvsS2yrhWXe3/wIoCr5" crossorigin="anonymous"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" integrity="sha384-KAUcUASKfGZ0sxENVFRiH12jtpvd9SsVpgzvYdvv8ZMLqB99G3gX3DAts418wzIC" crossorigin="anonymous"></script>
 </body>

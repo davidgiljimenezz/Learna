@@ -338,3 +338,6 @@ body.active .button1{
     body > .title-login { animation: none; }
     .animar { opacity: 1; transform: none; transition: none; }
 }
+
+.logout-form { display: flex; }
+.logout-form button { cursor: pointer; font-family: inherit; }
