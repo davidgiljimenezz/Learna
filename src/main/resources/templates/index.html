@@ -24,11 +24,11 @@
     <section class="categorias">
         <h2 class="section-title animar">Categorías</h2>
         <div class="cats animar">
-            <button class="cat active"><span>Todos</span></button>
-            <button class="cat"><span>Programación</span></button>
-            <button class="cat"><span>Diseño</span></button>
-            <button class="cat"><span>Marketing</span></button>
-            <button class="cat"><span>Idiomas</span></button>
+            <button class="cat active" data-categoria="Todos"><span>Todos</span></button>
+            <button class="cat" data-categoria="Programación"><span>Programación</span></button>
+            <button class="cat" data-categoria="Diseño"><span>Diseño</span></button>
+            <button class="cat" data-categoria="Marketing"><span>Marketing</span></button>
+            <button class="cat" data-categoria="Idiomas"><span>Idiomas</span></button>
         </div>
     </section>
 
@@ -37,7 +37,7 @@
         <h2 class="section-title animar">Cursos destacados</h2>
         <div class="cursos-grid">
 
-            <div th:each="curso : ${cursos}" class="card animar">
+            <div th:each="curso : ${cursos}" th:attr="data-categoria=${curso.categoria}" class="card animar">
                 <div class="card-img" style="background:#EEE8FE">🎨</div>
                 <div class="card-body">
                     <span th:text="${curso.categoria}" class="card-cat">Diseño</span>
