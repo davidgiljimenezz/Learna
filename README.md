@@ -1,5 +1,4 @@
-# Academy David
-
+# Learna
 Plataforma web de cursos online desarrollada con Spring Boot, Thymeleaf y MySQL.
 
 ## Estructura principal
